@@ -28,6 +28,7 @@
               ../../user/hardware/bluetooth.nix # Bluetooth
               ../../system/app/virtualization.nix # Virtual machines
               ../../user/app/neovim/nvim.nix
+              ../../user/app/language/rust.nix
             ];
 
   home.stateVersion = "22.11"; # Please read the comment before changing.
