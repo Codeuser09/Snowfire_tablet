@@ -26,7 +26,7 @@
               #../../user/lang/godot/godot.nix # Game development
               #../../user/pkgs/blockbench.nix # Blockbench ## marked as insecure
               ../../user/hardware/bluetooth.nix # Bluetooth
-              ../../system/app/virtualization.nix # Virtual machines
+              #../../system/app/virtualization.nix # Virtual machines
               ../../user/app/neovim/nvim.nix
               ../../user/app/language/rust.nix
             ];
@@ -56,9 +56,9 @@
     glib
     #newsflash
     gnome.nautilus
-    gnome.gnome-calendar
-    gnome.seahorse
-    gnome.gnome-maps
+    #gnome.gnome-calendar
+    #gnome.seahorse
+    #gnome.gnome-maps
     openvpn
     #protonmail-bridge
     #texliveSmall
@@ -91,10 +91,10 @@
 
     # Media
     thunderbird
-    gimp
-    pinta
-    krita
-    inkscape
+    #gimp
+    #pinta
+    #krita
+    #inkscape
     musikcube
     vlc
     mpv

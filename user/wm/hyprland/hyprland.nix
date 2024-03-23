@@ -112,7 +112,7 @@
        bind=SUPER,T,togglefloating
        bind=SUPER,G,exec,hyprworkspace 9; pegasus-fe;
 
-       bind=,code:107,exec,grim -g "$(slurp)"
+       bind=SUPERSHIFT, S ,exec,grim -g "$(slurp)"
        bind=SHIFT,code:107,exec,grim -g "$(slurp -o)"
        bind=SUPER,code:107,exec,grim
        bind=CTRL,code:107,exec,grim -g "$(slurp)" - | wl-copy
@@ -132,7 +132,7 @@
        bind=,code:255,exec,airplane-mode
        bind=SUPER,C,exec,wl-copy $(hyprpicker)
 
-       bind=SUPERSHIFT,S,exec,swaylock --grace 0 & sleep 1 && systemctl suspend
+       #bind=SUPERSHIFT,S,exec,swaylock --grace 0 & sleep 1 && systemctl suspend
        bind=SUPERCTRL,L,exec,swaylock --grace 0
 
        bind=SUPER,H,movefocus,l
