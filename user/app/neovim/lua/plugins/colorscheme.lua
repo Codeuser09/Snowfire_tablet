@@ -38,6 +38,7 @@ return {
 			treesitter_context = true,
 			which_key = true,
 		},
+		transparent_background = true,
 	},
 	{
 		"LazyVim/LazyVim",
