@@ -91,10 +91,8 @@ config.set('fileselect.single_file.command', ['kitty','-e','ranger','--choosefil
 config.set('fileselect.multiple_files.command', ['kitty','-e','ranger','--choosefiles={}'])
 config.set('fileselect.folder.command', ['kitty','-e','ranger','--choosedir={}'])
 
-# bindings from doom emacs
-config.bind('<Alt-x>', 'cmd-set-text :')
-config.bind('<Ctrl-p>', 'completion-item-focus prev', mode='command')
-config.bind('<Ctrl-n>', 'completion-item-focus next', mode='command')
+config.unbind('d')
+
 
 # bindings from vimium
 config.bind('t', 'open -t')
@@ -218,6 +216,8 @@ c.fonts.web.family.sans_serif = font
 c.fonts.web.family.fixed = font
 c.fonts.web.family.fantasy = font
 c.fonts.web.family.cursive = font
+
+c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt', 'https://easylist-downloads.adblockplus.org/easylistdutch.txt', 'https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt', 'https://www.i-dont-care-about-cookies.eu/abp/', 'https://secure.fanboy.co.nz/fanboy-cookiemonster.txt']
   '';
 
   home.file.".config/qutebrowser/qute-home.html".text = ''

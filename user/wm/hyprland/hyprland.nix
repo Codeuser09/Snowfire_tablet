@@ -33,7 +33,7 @@
 #      exec-once = STEAM_FRAME_FORCE_CLOSE=1 steam -silent
       exec-once = nm-applet
       exec-once = blueman-applet
-      exec-once = GOMAXPROCS=1 syncthing --no-browser
+#      exec-once = GOMAXPROCS=1 syncthing --no-browser
       exec-once = protonmail-bridge --noninteractive
       exec-once = waybar
       exec-once = emacs --daemon
@@ -77,6 +77,8 @@
        #    }
        #  }
        #}
+
+       #bind=SUPERSHIFT,U, source ~/.config/hypr/hyprland.conf
 
        bind=SUPERSHIFT,F,fullscreen,0
        bind=SUPER,Y,workspaceopt,allfloat

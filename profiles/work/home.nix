@@ -37,7 +37,7 @@
     # Core
     zsh
     alacritty
-    librewolf
+    #librewolf
     #brave
     #qutebrowser
     dmenu
@@ -49,7 +49,7 @@
 #    syncthing
 
     # Office
-    libreoffice-fresh
+    #libreoffice-fresh
     mate.atril
     #xournalpp
     glib
