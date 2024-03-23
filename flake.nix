@@ -100,6 +100,7 @@
               + "/home.nix") # load home.nix from selected PROFILE
             #  inputs.nix-flatpak.homeManagerModules.nix-flatpak # Declarative flatpaks
           ];
+
           extraSpecialArgs = {
             # pass config variables from above
             inherit pkgs-stable;
