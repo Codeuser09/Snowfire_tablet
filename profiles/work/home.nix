@@ -33,7 +33,6 @@
 
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-
   home.packages = (with pkgs; [
     # Core
     zsh
@@ -93,8 +92,8 @@
     thunderbird
     #gimp
     #pinta
-    #krita
-    #inkscape
+    krita
+    inkscape
     musikcube
     vlc
     mpv
