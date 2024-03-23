@@ -15,7 +15,7 @@
               ../../user/shell/sh.nix # My zsh and bash config
               ../../user/shell/cli-collection.nix # Useful CLI apps
               ../../user/bin/phoenix.nix # My nix command wrapper
-              #../../user/app/doom-emacs/doom.nix # My doom emacs config
+              ../../user/app/doom-emacs/doom.nix # My doom emacs config
               ../../user/app/ranger/ranger.nix # My ranger file manager config
               #../../user/app/git/git.nix # My git config
               #../../user/app/keepass/keepass.nix # My password manager
@@ -23,12 +23,13 @@
               #../../user/app/flatpak/flatpak.nix # Flatpaks
               ../../user/style/stylix.nix # Styling and themes for my apps
               ../../user/lang/cc/cc.nix # C and C++ tools
+              ../../user/lang/rust/rust.nix #Cargo and shit
+              ../../user/lang/python/python-packages.nix #Python shit I need for cargo stuff
               #../../user/lang/godot/godot.nix # Game development
               #../../user/pkgs/blockbench.nix # Blockbench ## marked as insecure
               ../../user/hardware/bluetooth.nix # Bluetooth
               #../../system/app/virtualization.nix # Virtual machines
-              ../../user/app/neovim/nvim.nix
-              ../../user/app/language/rust.nix
+              #../../user/app/neovim/nvim.nix
             ];
 
   home.stateVersion = "22.11"; # Please read the comment before changing.
@@ -159,11 +160,12 @@
     publicShare = null;
     extraConfig = {
       XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
-      XDG_ARCHIVE_DIR = "${config.home.homeDirectory}/Archive";
-      XDG_VM_DIR = "${config.home.homeDirectory}/Machines";
-      XDG_ORG_DIR = "${config.home.homeDirectory}/Org";
+      #XDG_ARCHIVE_DIR = "${config.home.homeDirectory}/Archive";
+      #XDG_VM_DIR = "${config.home.homeDirectory}/Machines";
+      #XDG_ORG_DIR = "${config.home.homeDirectory}/Org";
       XDG_PODCAST_DIR = "${config.home.homeDirectory}/Media/Podcasts";
       XDG_BOOK_DIR = "${config.home.homeDirectory}/Media/Books";
+      XDG_PROJECT_DIR = "${config.home.homeDirectory}/Projects";
     };
   };
   xdg.mime.enable = true;
