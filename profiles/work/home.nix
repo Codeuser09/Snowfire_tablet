@@ -17,8 +17,8 @@
               ../../user/bin/phoenix.nix # My nix command wrapper
               #../../user/app/doom-emacs/doom.nix # My doom emacs config
               ../../user/app/ranger/ranger.nix # My ranger file manager config
-              ../../user/app/git/git.nix # My git config
-              ../../user/app/keepass/keepass.nix # My password manager
+              #../../user/app/git/git.nix # My git config
+              #../../user/app/keepass/keepass.nix # My password manager
               (./. + "../../../user/app/browser"+("/"+userSettings.browser)+".nix") # My default browser selected from flake
               #../../user/app/flatpak/flatpak.nix # Flatpaks
               ../../user/style/stylix.nix # Styling and themes for my apps
@@ -39,13 +39,12 @@
     zsh
     alacritty
     librewolf
-#    brave
-#    qutebrowser
+    #brave
+    #qutebrowser
     dmenu
     rofi
     git
     obsidian
-    thunderbird
     lshw
 #    neovim
 #    syncthing
@@ -64,7 +63,7 @@
     #protonmail-bridge
     #texliveSmall
 
-    wine
+    #wine
     #bottles
     # The following requires 64-bit FL Studio (FL64) to be installed to a bottle
     # With a bottle name of "FL Studio"
@@ -91,6 +90,7 @@
     #})
 
     # Media
+    thunderbird
     gimp
     pinta
     krita
@@ -99,44 +99,46 @@
     vlc
     mpv
     yt-dlp
+    thunderbird
     #blender
-    cura
-    curaengine_stable
-    (stdenv.mkDerivation {
-      name = "cura-slicer";
-      version = "0.0.7";
-      src = fetchFromGitHub {
-        owner = "Spiritdude";
-        repo = "Cura-CLI-Wrapper";
-        rev = "ff076db33cfefb770e1824461a6336288f9459c7";
-        sha256 = "sha256-BkvdlqUqoTYEJpCCT3Utq+ZBU7g45JZFJjGhFEXPXi4=";
-      };
-      phases = "installPhase";
-      installPhase = ''
-        mkdir -p $out $out/bin $out/share $out/share/cura-slicer
-        cp $src/cura-slicer $out/bin
-        cp $src/settings/fdmprinter.def.json $out/share/cura-slicer
-        cp $src/settings/base.ini $out/share/cura-slicer
-        sed -i 's+#!/usr/bin/perl+#! /usr/bin/env nix-shell\n#! nix-shell -i perl -p perl538 perl538Packages.JSON+g' $out/bin/cura-slicer
-        sed -i 's+/usr/share+/home/${userSettings.username}/.nix-profile/share+g' $out/bin/cura-slicer
-      '';
-      propagatedBuildInputs = with pkgs; [
-        curaengine_stable
-      ];
-    })
+    #cura
+    #curaengine_stable
+    #(stdenv.mkDerivation {
+    #  name = "cura-slicer";
+    #  version = "0.0.7";
+    #  src = fetchFromGitHub {
+    #    owner = "Spiritdude";
+    ##    repo = "Cura-CLI-Wrapper";
+    #    rev = "ff076db33cfefb770e1824461a6336288f9459c7";
+    #    sha256 = "sha256-BkvdlqUqoTYEJpCCT3Utq+ZBU7g45JZFJjGhFEXPXi4=";
+    #  };
+    #  phases = "installPhase";
+    #  installPhase = ''
+    #    mkdir -p $out $out/bin $out/share $out/share/cura-slicer
+    #    cp $src/cura-slicer $out/bin
+    #    cp $src/settings/fdmprinter.def.json $out/share/cura-slicer
+    #    cp $src/settings/base.ini $out/share/cura-slicer
+    #    sed -i 's+#!/usr/bin/perl+#! /usr/bin/env nix-shell\n#! nix-shell -i perl -p perl538 perl538Packages.JSON+g' $out/bin/cura-slicer
+    #    sed -i 's+/usr/share+/home/${userSettings.username}/.nix-profile/share+g' $out/bin/cura-slicer
+    #  '';
+    #  propagatedBuildInputs = with pkgs; [
+    #    curaengine_stable
+    #  ];
+    #})
     obs-studio
     ffmpeg
     (pkgs.writeScriptBin "kdenlive-accel" ''
       #!/bin/sh
       DRI_PRIME=0 kdenlive "$1"
     '')
-    movit
-    mediainfo
-    libmediainfo
-    mediainfo-gui
-    audio-recorder
+    #movit
+    #mediainfo
+    #libmediainfo
+    #mediainfo-gui
+    #audio-recorder
 
     # Various dev packages
+    gh
     texinfo
     libffi zlib
     nodePackages.ungit
