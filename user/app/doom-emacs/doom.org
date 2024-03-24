@@ -1992,7 +1992,6 @@ in
     isync
     msmtp
     (python3.withPackages (p: with p; [
-      pandas
       requests
       epc lxml
       pysocks

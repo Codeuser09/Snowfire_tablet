@@ -1,13 +1,15 @@
-{ pkgs, ... }:
-
-{
-  # Python packages
-  home.packages = with pkgs.python3Packages; [
+{pkgs, ...}: {
+  home.packages = (with pkgs; [
+    (python3.withPackages (p: with p; [
+      requests
+      epc lxml
+      pysocks
+      pymupdf
+      markdown
+      matplotlib
       pandas
       numpy
-      matplotlib
-      #tensorflow #maybe later
-      distro
-      pip
-  ];
+      python-lsp-server
+    ]))
+  ]);
 }

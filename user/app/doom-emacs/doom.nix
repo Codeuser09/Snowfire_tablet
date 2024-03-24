@@ -51,19 +51,10 @@ in
     hledger
     hunspell hunspellDicts.en_US-large
     pandoc
-    #rust-analyzer
     (pkgs.mu.override { emacs = emacs29-pgtk; })
     emacsPackages.mu4e
     isync
     msmtp
-    (python3.withPackages (p: with p; [
-      requests
-      epc lxml
-      pysocks
-      pymupdf
-      markdown
-      python-lsp-server
-    ]))
   ]) ++ (with pkgs-stable; [
     nodejs
     nodePackages.mermaid-cli
