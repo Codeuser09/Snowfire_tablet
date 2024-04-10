@@ -19,7 +19,7 @@
               ../../user/app/ranger/ranger.nix # My ranger file manager config
               #../../user/app/git/git.nix # My git config
               #../../user/app/keepass/keepass.nix # My password manager
-              (./. + "../../../user/app/browser"+("/"+userSettings.browser)+".nix") # My default browser selected from flake
+              #(./. + "../../../user/app/browser"+("/"+userSettings.browser)+".nix") # My default browser selected from flake
               #../../user/app/flatpak/flatpak.nix # Flatpaks
               ../../user/style/stylix.nix # Styling and themes for my apps
               ../../user/lang/cc/cc.nix # C and C++ tools
@@ -46,6 +46,7 @@
     git
     obsidian
     lshw
+    firefox
 #    neovim
 #    syncthing
 
@@ -93,10 +94,10 @@
     thunderbird
     #gimp
     #pinta
-    krita
-    inkscape
-    musikcube
-    vlc
+    #krita
+    #inkscape
+    #musikcube
+    #vlc
     mpv
     yt-dlp
     thunderbird
@@ -125,12 +126,12 @@
     #    curaengine_stable
     #  ];
     #})
-    obs-studio
+    #obs-studio
     ffmpeg
-    (pkgs.writeScriptBin "kdenlive-accel" ''
-      #!/bin/sh
-      DRI_PRIME=0 kdenlive "$1"
-    '')
+    #(pkgs.writeScriptBin "kdenlive-accel" ''
+    #  #!/bin/sh
+    #  DRI_PRIME=0 kdenlive "$1"
+    #'')
     #movit
     #mediainfo
     #libmediainfo
@@ -142,7 +143,7 @@
     texinfo
     libffi zlib
     nodePackages.ungit
-  ]) ++ ([ pkgs-kdenlive.kdenlive ]);
+  ]); # ++ ([ pkgs-kdenlive.kdenlive ]);
 
   #services.syncthing.enable = true;
 
@@ -178,7 +179,7 @@
     EDITOR = userSettings.editor;
     SPAWNEDITOR = userSettings.spawnEditor;
     TERM = userSettings.term;
-    BROWSER = userSettings.browser;
+    BROWSER = "firefox";
   };
 
 }

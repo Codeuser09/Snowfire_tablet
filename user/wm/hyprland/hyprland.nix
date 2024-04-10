@@ -38,8 +38,11 @@
       exec-once = waybar
       exec-once = emacs --daemon
 
-      exec-once = swayidle -w timeout 90 '${config.programs.swaylock.package}/bin/swaylock -f' timeout 210 'suspend-unless-render' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${config.programs.swaylock.package}/bin/swaylock -f"
+      exec-once = swayidle -w timeout 90 '${config.programs.swaylock.package}/bin/swaylock -f'
+      #timeout 210 'suspend-unless-render' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${config.programs.swaylock.package}/bin/swaylock -f"
       exec-once = obs-notification-mute-daemon
+
+      exec-once = firefox
 
       exec = ~/.swaybg-stylix
 
@@ -134,7 +137,6 @@
        bind=,code:255,exec,airplane-mode
        bind=SUPER,C,exec,wl-copy $(hyprpicker)
 
-       #bind=SUPERSHIFT,S,exec,swaylock --grace 0 & sleep 1 && systemctl suspend
        bind=SUPERCTRL,L,exec,swaylock --grace 0
 
        bind=SUPER,H,movefocus,l
@@ -173,6 +175,9 @@
        bind=SUPER,B,exec,pypr toggle btm && hyprctl dispatch bringactivetotop
        bind=SUPER,E,exec,pypr toggle geary && hyprctl dispatch bringactivetotop
        bind=SUPER,code:172,exec,pypr toggle pavucontrol && hyprctl dispatch bringactivetotop
+
+       bindl=,switch:Lid Switch,exec,swaylock
+
        $scratchpadsize = size 80% 85%
 
        $scratchpad = class:^(scratchpad)$
@@ -209,6 +214,9 @@
        windowrulev2 = opacity 0.9,class:^(org.keepassxc.KeePassXC)$
        windowrulev2 = opacity 0.75,class:^(org.gnome.Nautilus)$
 
+       windowrulev2 = fullscreen, class:^(firefox)$
+       windowrulev2 = workspace 2, class:^(firefox)$
+
        layerrule = blur,waybar
 
        bind=SUPER,code:21,exec,pypr zoom
@@ -222,9 +230,10 @@
        bind=SUPERSHIFT,P,exec,hyprprofile-dmenu
 
        # 3 monitor setup
-       monitor=eDP-1,1920x1080,1000x1080,1
-       monitor=HDMI-A-1,1920x1080,1920x0,1
-       monitor=DP-1,1920x1080,0x0,1
+       #monitor=eDP-1,1920x1080,1000x1080,1
+       #monitor=HDMI-A-1,1920x1080,1920x0,1
+       #monitor=DP-1,1920x1080,0x0,1
+       monitor=,preferred,auto,1
 
        # 2 monitor setup
        #monitor=eDP-1,1920x1080,1920x0,1
@@ -239,13 +248,16 @@
 
        input {
          kb_layout = de
-         kb_options = caps:escape
+         #kb_options = caps:escape
          repeat_delay = 350
          repeat_rate = 50
          accel_profile = adaptive
          follow_mouse = 2
        }
 
+      gestures {
+          workspace_swipe = true
+      }
        misc {
          mouse_move_enables_dpms = false
        }

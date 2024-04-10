@@ -25,7 +25,7 @@
       ../../system/security/openvpn.nix
       ../../system/security/automount.nix
       ../../system/style/stylix.nix
-      ../../system/hardware/nvidia.nix
+      #../../system/hardware/nvidia.nix
     ];
   # Fix nix path
   nix.nixPath = [ "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
@@ -52,6 +52,8 @@
   boot.loader.efi.efiSysMountPoint = systemSettings.bootMountPath; # does nothing if running bios rather than uefi
   boot.loader.grub.enable = if (systemSettings.bootMode == "uefi") then false else true;
   boot.loader.grub.device = systemSettings.grubDevice; # does nothing if running uefi rather than bios
+
+  services.logind.lidSwitch = "ignore" ;
 
   # Networking
   networking.hostName = systemSettings.hostname; # Define your hostname.
